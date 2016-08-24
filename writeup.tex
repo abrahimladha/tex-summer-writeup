@@ -1,4 +1,4 @@
-\documentclass[conference]{IEEEtran}
+\documentclass[12pt]{article}
 \usepackage{cite}
 \usepackage{amsmath}
 \usepackage{graphicx}
@@ -6,24 +6,51 @@
 \usepackage{tikz}
 \usepackage{url}
 \begin{document}
-\title{Hypothetical Problems concerning the Theory of Relativity on Cryptographic Currency Implementations}
-\author{
-    \IEEEauthorblockN{Author1\IEEEauthorrefmark{1}, Abrahim Ladha\IEEEauthorrefmark{2}}
-    \IEEEauthorblockA{\IEEEauthorrefmark{1}Armstrong State University, rasheed-school
-    \\rasheed-email-1,...}
-    \IEEEauthorblockA{\IEEEauthorrefmark{2}Armstrong State University, Georgia Institute of Technology
-    \\abrahimladha@protonmail.ch}
-}
+\title{Insert title here.}
 
-\maketitle
-
-\begin{abstract}
-ayylmao
-\end{abstract}
 
 intro
 \\background
 \\proposal/approach
 \\results
 \\appendices
+
+\begin{enumerate}
+\item intro
+	\begin{enumerate}
+	\item what this paper is
+	\item who was involved
+	\end{enumerate}
+\item background
+	\begin{enumerate}
+	\item what is cryptography?
+	\item what is secure multiparty computation? (shamirs scheme as example)
+	\item what is the problem we are trying to solve
+	\item what solutions already exist (polynomial scheme) 
+	\end{enumerate}
+\item proposal
+	\begin{enumerate}
+	\item what is hamming distance?
+	\item of n parties?
+	\item basic scheme
+	\item fully secure scheme
+	\item n sets of binary strings, if $d_h(X_1,X_2)$ is 0, they are equal for intersection
+	\end{enumerate}
+\item results
+	\begin{enumerate}
+	\item implementation of basic scheme
+	\item reasons fully secure didnt work
+	\item graph1 hamming distance vs throughput
+	\item graph2 hamming distance vs time
+	\item graph3 time vs n vs set size
+	\end{enumerate}
+\end{enumerate}
+\newpage
+
+\section{Introduction}
+basldaskdlsak;asfsdfl;ksadf;lsdkf;sdlkf
+
+\section{Background}
+What exactly is cryptography? Cryptography is the practice and study of secure communications in the presence of adversaries. It is using Mathematics to secure information. Cryptography is very new and also very old. Julius Caesar used to encrypt his messages he deemed of military significance using the \textit{Caesar Cipher}, which shifted every letter over by three. The field in which Dr. Rasheed and I studied is called \textit{Secure Mulitparty Computation}. In a given system of $n$ players, each player $P_i$ has a secret input $x_i$. The players want to compute some $f(x_1,x_2,...,x_n)$ while revealing no information about their inputs. A real world example would be if you have three co-workers, and they want to find out who has the highest salary without revealing their salaries to each other. This means we have $n=3$ players, and $f(x1,x2,x3) = max(x1,x2,x3)$. A good MPC protocol satisfies two properties: Input privacy and correctness. In terms of input privacy, no information about the players inputs should be able to be inferred during the execution of the protocol. The only information that should be inferred is whatever could have been seen by seeing the output of the function alone.In terms of correctness, no player or players who may deviate from the protocol should be able to force honest parties to output an incorrect result.  
+
 \end{document}
