@@ -107,7 +107,9 @@ We propose a different solution than in (cite polynomial guy). Given $n$ sets, $
 
 
 \section{Results}
-Due to some issues, The fully secure scheme does not run with out running out of memory. This will continue to be worked on as time progresses.
+Due to some issues, The fully secure scheme does not run with out running out of memory. This will continue to be worked on as time progresses. The basic scheme is fully implemented and we have recorded and presented some information based off its efficiency
+
+%add hamming distance vs time
 
 \begin{figure}[ht]
 \centering
@@ -115,12 +117,36 @@ Due to some issues, The fully secure scheme does not run with out running out of
 \caption{Time in seconds it takes to compute intersection of sets of different sizes. Shown here for 2, 4, and 10 parties}
 \end{figure}
 
+Notice that string size appears to have no difference on time, so this runs in $O(1)$ time, and the set size is a simple combinatorial algorithm in $O(n\log(n))$, nesting these we see that the SOMETHINGSOMETHING for the basic scheme is $O(n\log(n))$ 
 
 
-
+%add hamming distance vs throughput
+%add some random observations about throughput
 
 \section{Appendices}
 test of latexing a source code file
 \lstinputlisting{main.cpp}
+%main.cpp
 
+%elgamal.cpp
+%elgamal.h
+%elgamal_prover.cpp
+%elgamal_prover.h
+
+%basic.cpp
+%basic.h
+
+%fully_secure.h
+%fully_secure.cpp
+%
+\begin{thebibliography}{1}
+
+%shade paper
+
+%shamirs scheme
+
+%committed bitstrings paper
+
+
+\end{thebibliography}
 \end{document}
