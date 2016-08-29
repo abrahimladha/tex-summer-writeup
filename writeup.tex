@@ -1,4 +1,4 @@
-\documentclass[12pt]{article}
+\documentclass[10pt]{article}
 \usepackage{cite}
 \usepackage{amsmath}
 \usepackage{graphicx}
@@ -6,6 +6,26 @@
 \usepackage{tikz}
 \usepackage{url}
 \usepackage{braket}
+\usepackage{listings}
+
+\lstset{ %
+language=C++,                % choose the language of the code
+basicstyle=\scriptsize\ttfamily,       % the size of the fonts that are used for the code
+numbers=left,                   % where to put the line-numbers
+numberstyle=\footnotesize,      % the size of the fonts that are used for the line-numbers
+stepnumber=1,                   % the step between two line-numbers. If it is 1 each line will be numbered
+numbersep=5pt,                  % how far the line-numbers are from the code
+backgroundcolor=\color{white},  % choose the background color. You must add \usepackage{color}
+showspaces=false,               % show spaces adding particular underscores
+showstringspaces=false,         % underline spaces within strings
+showtabs=false,                 % show tabs within strings adding particular underscores
+frame=single,           % adds a frame around the code
+tabsize=2,          % sets default tabsize to 2 spaces
+captionpos=b,           % sets the caption-position to bottom
+breaklines=true,        % sets automatic line breaking
+breakatwhitespace=false,    % sets if automatic breaks should only happen at whitespace
+escapeinside={\%*}{*)}          % if you want to add a comment within your code
+}
 \begin{document}
 \title{Insert title here.}
 
@@ -81,7 +101,7 @@ Hamming Distance is a measurement between two bitstrings. It represents the numb
 
 Oblivious Transfer (OT) is a protocol type in which a sender transfers one of many pieces of information, but is oblivious as to what piece has been transferred.
 
-Threshold cryptosystems are systems that in order to decrypt an encrypted message, require the work of several parties is required. If there are $n$ parties, and atleast $t$ of them must aid in the decryption, then we call this a $(t,n)$-threshold scheme. As a more layman example, consider having $n$ parties, and some $n-1$ degree polynomial $\Sigma_{i=1}^{n-1} a_i x^i$ where $a_i$ is an element of some finite field and $\braket{a_1,a_2,...,a_n}$. is our message to decrypt (our shared secret). We give each player some unique point that is a solution to  our polynomial. Clearly if they work together, by methods of Lagrange interpolation they can solve for the coefficients of our polynomial since they have $n$ points points and the polynomial is defined as having degree $n-1$. However this requires all $n$ parties. Even if $n-1$ parties converse, there will be many possible solutions in our field. In the real numbers, given some polynomial of degree $n-1$, and if you don't have $n$ or more points, then there exist infinite solutions for your coefficients of your polynomial. This can be considered a $(n,n)$-threshold scheme, and its called Shamir's Secret sharing scheme. (CITE)
+Threshold homomorphic cryptosystems are systems that in order to decrypt an encrypted message, require the work of several parties is required. If there are $n$ parties, and atleast $t$ of them must aid in the decryption, then we call this a $(t,n)$-threshold scheme. As a more layman example, consider having $n$ parties, and some $n-1$ degree polynomial $\Sigma_{i=1}^{n-1} a_i x^i$ where $a_i$ is an element of some finite field and $\braket{a_1,a_2,...,a_n}$. is our message to decrypt (our shared secret). We give each player some unique point that is a solution to  our polynomial. Clearly if they work together, by methods of Lagrange interpolation they can solve for the coefficients of our polynomial since they have $n$ points points and the polynomial is defined as having degree $n-1$. However this requires all $n$ parties. Even if $n-1$ parties converse, there will be many possible solutions in our field. In the real numbers, given some polynomial of degree $n-1$, and if you don't have $n$ or more points, then there exist infinite solutions for your coefficients of your polynomial. This can be considered a $(n,n)$-threshold scheme, and its called Shamir's Secret sharing scheme. (CITE)
 \section{Proposal}
 We propose a different solution than in (cite polynomial guy). Given $n$ sets, $x_1,...,x_n$, we compute the intersections of two sets at a time. We compare each element of one set to every element of the other set. If the hamming distance of two elements compared is zero, this implies that they are identical, so they are added to a new temporary set. This temporary set is is then added to the sets to compute the intersection of. If is it the case that some $x_i \cap x_j = \emptyset$ for $i  < j$, then we simply take $x_i$ as it has higher precedence. For the secure hamming distance method, we borrow (?) two protocols from CITE and CITE. known as the basic scheme and the fully secure scheme. They are both secure against different types of adversaries. The basic scheme is secure against semi-honest (passive) adversaries. This means we can assume adversaries cooperate to gather information and do not deviate from the protocol specification. The fully secure scheme is secure against malicious (active) adversaries. In this case they may deviate from the protocol specification and attempt to cheat, as the design of the protocol ensures its a futile endeavor. 
 
@@ -96,7 +116,11 @@ Due to some issues, The fully secure scheme does not run with out running out of
 \end{figure}
 
 
-cure hamming distance method, we borrow (?) two protocols from CITE and CITE. known as the basic scheme and the fully secure scheme. They are both secure against different types of adversaries. The basic scheme is secure against semi-honest (passive) adversaries. This means we can assume adversaries cooperate to gather information and do not deviate from the protocol specification. The fully secure scheme is secure against malicious (active) adversaries. In this case they may deviate from the protocol specification and attempt to cheat, as the design of the protocol ensures its a futile endeavor. 
-asdasdasda
+
+
+
+\section{Appendices}
+test of latexing a source code file
+\lstinputlisting{main.cpp}
 
 \end{document}
