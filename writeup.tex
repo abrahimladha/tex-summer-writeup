@@ -27,60 +27,10 @@ breakatwhitespace=false,    % sets if automatic breaks should only happen at whi
 escapeinside={\%*}{*)}          % if you want to add a comment within your code
 }
 \begin{document}
-\title{Insert title here.}
+\title{A Secure Set Intersection Protocol using Hamming Distance as a Comparator.}
+\author{Dr. Amar Rasheed\\ Armstrong State University\\amar.rasheed@armstrong.edu \and Abrahim Ladha\\ Georgia Institute of Technology\\ abrahimladha@protonmail.ch}
+\maketitle
 
-
-intro
-\\background
-\\proposal/approach
-\\results
-\\appendices
-
-\begin{enumerate}
-\item intro
-	\begin{enumerate}
-	\item what this paper is
-	\item who was involved
-	\end{enumerate}
-\item background
-	\begin{enumerate}
-	\item what is cryptography?
-	\item what is secure multiparty computation?
-	\item what is the problem we are trying to solve
-	\item what is hamming distance?
-	\item what is OT? COT? (2,2)-threshold encryption	
-	\item what solutions already exist (polynomial scheme) 
-	\end{enumerate}
-\item proposal
-	\begin{enumerate}
-	\item basic scheme
-	\item fully secure scheme
-	\item n sets of binary strings, if $d_h(X_1,X_2)$ is 0, they are equal for intersection
-	\end{enumerate}
-\item results
-	\begin{enumerate}
-	\item implementation of basic scheme
-	\item reasons fully secure didnt work
-	\item graph1 hamming distance vs throughput
-	\item graph2 hamming distance vs time
-	\item graph3 time vs n vs set size
-	\end{enumerate}
-\item appendecies
-	\begin{enumerate}
-	\item elgamal
-	\item elgamal prover
-	\item basic
-	\item fully secure
-	\item files to generate and plot csv
-		\begin{enumerate}
-		\item testing to basic
-		\item basic documentation of code
-		\item makefile
-		\item make sure all is commented
-		\item gitignore gch and swp and anything else?
-		\end{enumerate}
-	\end{enumerate}
-\end{enumerate}
 
 \newpage
 
@@ -110,22 +60,45 @@ We propose a different solution than in (cite polynomial guy). Given $n$ sets, $
 Due to some issues, The fully secure scheme does not run with out running out of memory. This will continue to be worked on as time progresses. The basic scheme is fully implemented and we have recorded and presented some information based off its efficiency
 
 %add hamming distance vs time
+\begin{figure}[ht!]
+\centering
+\includegraphics[scale=0.64]{h1} 
+\caption{Time taken based on String length. x-scale is exponential to demonstrate that this is infact $O(n)$ and not $O(1)$.}
+\end{figure}
 
-\begin{figure}[ht]
+\begin{figure}[ht!]
 \centering
 \includegraphics[scale=0.64]{g6} 
 \caption{Time in seconds it takes to compute intersection of sets of different sizes. Shown here for 2, 4, and 10 parties}
 \end{figure}
 
-Notice that string size appears to have no difference on time, so this runs in $O(1)$ time, and the set size is a simple combinatorial algorithm in $O(n\log(n))$, nesting these we see that the SOMETHINGSOMETHING for the basic scheme is $O(n\log(n))$ 
+Since It takes $O(n)$ time to process a string, and to process sets is a simple combinatorial algorithm running in $O(n\log n)$, the time for this algorithm to run in $O(n^2 \log n^2)$
+
 
 
 %add hamming distance vs throughput
 %add some random observations about throughput
 
 \section{Appendices}
-test of latexing a source code file
+Here we present the actual code. Please keep in mind files for the fully secure scheme are not implemented correctly but are presented for completion's sake.\\
+basic.h
+\lstinputlisting{basic.h}
+basic.cpp
+\lstinputlisting{basic.cpp}
+main.cpp
 \lstinputlisting{main.cpp}
+elgamal\_v.cpp
+\lstinputlisting{elgamal_gmpxx.cpp}
+fully\_secure.h
+\lstinputlisting{fully_secure.h}
+fully\_secure.cpp
+\lstinputlisting{fully_secure.cpp}
+elgamal.h
+\lstinputlisting{elgamal.h}
+elgamal.cpp
+\lstinputlisting{elgamal.cpp}
+crypto.cpp
+\lstinputlisting{crypto.cpp}
 %main.cpp
 
 %elgamal.cpp
